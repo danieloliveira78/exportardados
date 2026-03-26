@@ -9,3 +9,5 @@ openpyxl.styles
 sys
 json
 xml.sax.saxutils
+fastapi
+uvicorn
