@@ -1,0 +1,11 @@
+requests
+pandas
+xml.etree.ElementTree
+os
+datetime
+urllib3
+openpyxl
+openpyxl.styles
+sys
+json
+xml.sax.saxutils
