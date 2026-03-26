@@ -1,14 +1,16 @@
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 import ExportarDados
 
 app = FastAPI()
 
 @app.get("/exportar")
-def exportar(SELECT,WHERE,FROM,GROUP,ORDER:str):
+def exportar(SELECT: str, WHERE: str, FROM: str, GROUP: str, ORDER: str):
 
-    resultado = ExportarDados.executar(SELECT,WHERE,FROM,GROUP,ORDER:str)
+    arquivo = ExportarDados.executar(SELECT, WHERE, FROM, GROUP, ORDER)
 
-    return {
-        "status": "ok",
-        "resultado": resultado
-    }
+    return FileResponse(
+        path=arquivo,
+        filename=arquivo,
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
