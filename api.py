@@ -5,9 +5,9 @@ import ExportarDados
 app = FastAPI()
 
 @app.get("/exportar")
-def exportar(SELECT: str, WHERE: str, FROM: str, GROUP: str, ORDER: str):
+def exportar(SELECT: str, WHERE: str, FROM: str, GROUPBY: str, ORDERBY: str):
 
-    arquivo = ExportarDados.executar(SELECT, WHERE, FROM, GROUP, ORDER)
+    arquivo = ExportarDados.executar(SELECT, WHERE, FROM, GROUPBT, ORDERBY)
 
     return FileResponse(
         path=arquivo,
